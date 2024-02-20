@@ -1,14 +1,10 @@
 import './App.css'
-import Transition from './visualisation/Transition'
-import Axis from './visualisation/Axis'
-import Wip from './visualisation/Wip'
+import ChartWithDimensions from './visualisation/ChartWithDimensions'
 
 function App() {
   return (
     <>
-      <Transition />
-      <Axis />
-      {/* <Wip /> */}
+      <ChartWithDimensions />
     </>
   )
 }

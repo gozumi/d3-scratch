@@ -1,14 +1,22 @@
 import { useMemo } from 'react'
 import * as d3 from 'd3'
 
-export default function Axis() {
+interface AxisProps {
+  domain: number[]
+  range: number[]
+}
+
+export default function Axis(props: AxisProps) {
+  const { domain, range } = props
+
   const ticks = useMemo(() => {
-    const xScale = d3.scaleLinear().domain([0, 100]).range([10, 290])
+    const xScale = d3.scaleLinear().domain(domain).range(range)
     return xScale.ticks().map((value) => ({
       value,
       xOffset: xScale(value),
     }))
-  }, [])
+  }, [domain, range])
+
   return (
     <svg>
       <path d="M 9.5 0.5 H 290.5" stroke="currentColor" />
